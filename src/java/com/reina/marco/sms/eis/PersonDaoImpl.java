@@ -45,7 +45,7 @@ public class PersonDaoImpl implements PersonDao {
 
 	@Override
 	public void deletePerson(Person person) {
-		em.merge(person);
+		person = em.getReference(Person.class, person.getIdPerson());
 		em.remove(person);
 	}
 
